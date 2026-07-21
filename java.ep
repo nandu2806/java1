@@ -1,0 +1,38 @@
+package ebbill;
+import java.util.Scanner;
+public class EBbill {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String type;
+        int units;
+        double amount=0;
+        System.out.print("Enter connection:");
+        type=sc.nextLine();
+        System.out.print("Enter units consumed");
+        units=sc.nextInt();
+        if(type.equalsIgnoreCase("Domestic")){
+            if(units<=100)
+                amount=0;
+            else if(units<=200)
+                amount=(units-100)*2;
+            else if(units<=500)
+                amount=(100*2)+(units-200)*4;
+            else
+                amount=(100*2)+(300*4)+(units-500)*6;
+        }else if(type.equalsIgnoreCase("commerical")){
+            if(units<=100)
+                amount=units*2;
+            else if(units<=200)
+                amount=(100*2)+(units-100)*4;
+            else if(units<=500)
+                amount=(100*2)+(100*4)+(units-200)*6;
+            else        
+                amount=(100*2)+(100*4)+(units-500)*7;
+        }else{
+            System.out.println("Invalid connection type");
+         }
+        System.out.print("Amount to be paid:Rs"+amount);
+                                                     
+    }
+    
+}
