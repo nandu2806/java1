@@ -1,0 +1,75 @@
+package area;
+import java.util.Scanner;
+public abstract class Shape {
+    int a,b;
+    void input(int x,int y)
+    {
+        a=x;
+        b=y;
+    }
+
+    void printArea() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+ }
+class Rectangle extends Shape
+{
+    public void printArea(){
+        System.out.println("Area of Rectangle :" +(a*b));
+    }
+}
+class Triangle extends Shape{
+    public void printArea()
+    {
+        System.out.println("Area of Triangle : " +(0.5*a*b));
+    }
+}
+class Circle extends Shape{
+    public void printArea()
+    {
+        System.out.println("Area of Circle : " +(3.14*a*a));
+    }
+}
+class Area{
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        Shape s;
+        System.out.println("1.Area of Rectangle");
+        System.out.println("2.Area of Triangle");
+        System.out.println("3.Area of Circle");
+        System.out.println("Enter your choice");
+        String ch;
+        ch=in.nextLine();
+        switch(ch) 
+        {
+            case "1":
+                System.out.println("Enter the Length");
+                int l=in.nextInt();
+                System.out.println("Enter the Breath");
+                int bh=in.nextInt();
+                s=new Rectangle();
+                s.input(l, bh);
+                s.printArea();
+                break;
+            case "2":
+                System.out.println("Enter the Base");
+                int bs=in.nextInt();
+                System.out.println("Enter the Height");
+                int h=in.nextInt();
+                s=new Triangle();
+                s.input(bs,h);
+                s.printArea();
+                break;
+            case "3":
+                System.out.println("Enter the radius");
+                int r=in.nextInt();
+                s=new Circle();
+                s.input(r,0);
+                s.printArea();
+                break;
+            default:
+                System.out.println("Invalid Input");
+        }
+        
+    }
+}
